@@ -17,6 +17,7 @@ function Form() {
   const onSubmit: SubmitHandler<FormFields> = (data) => {
     console.log(data);
   };
+//   console.log(register("firstName", { required: "this field is required" }))
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
