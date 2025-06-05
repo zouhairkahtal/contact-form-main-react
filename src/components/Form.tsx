@@ -1,5 +1,6 @@
 import { useForm, type SubmitHandler } from "react-hook-form";
-
+import { ToastContainer, toast } from "react-toastify";
+import success from "../assets/images/icon-success-check.svg";
 type FormFields = {
   firstName: string;
   lastName: string;
@@ -8,16 +9,45 @@ type FormFields = {
   message: string;
   contacted: true;
 };
+
 function Form() {
+  const notify = () =>
+    toast(
+      <div className="bg-grey600 w-full  text-white px-4 py-3 rounded-lg flex flex-col shadow-lg">
+        <div className="flex items-center space-x-2">
+          <img src={success} alt="success icon" />
+
+          <p className="font-semibold">Message Sent!</p>
+        </div>
+        <p className="text-sm text-gray-200 mt-1 ">
+          Thanks for completing the form. We'll be in touch soon!
+        </p>
+      </div>,
+      {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        closeButton: false,
+        theme: "light",
+      }
+    );
+
   const {
     register,
     handleSubmit,
+      reset,
     formState: { errors },
   } = useForm<FormFields>();
   const onSubmit: SubmitHandler<FormFields> = (data) => {
     console.log(data);
+    notify();
+    reset()
   };
-//   console.log(register("firstName", { required: "this field is required" }))
+  
+  //   console.log(register("firstName", { required: "this field is required" }))
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -108,7 +138,7 @@ function Form() {
             type="text"
             {...register("message", { required: "this field is required" })}
             className={`w-full h-24 rounded-xl mt-3 border border-grey200 border-solid ${
-              errors.email ? "border-red-500" : "border-grey200"
+              errors.message ? "border-red-500" : "border-grey200"
             }`}
           />{" "}
           {errors.message && (
@@ -137,6 +167,7 @@ function Form() {
       >
         Submit
       </button>
+      <ToastContainer toastClassName="bg-gray-700 text-white w-[410px] h-[100px] px-5 py-4 rounded-xl shadow-md flex flex-col justify-center" />
     </form>
   );
 }
