@@ -16,6 +16,9 @@ export default {
       fontFamily: {
           karla:'"Karla", sans-serif'
       },
+      // hoverInput:{
+      //   border:'green600'
+      // },
       width:{
         contactUsdevWidth:'700px'
       },

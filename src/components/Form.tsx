@@ -38,15 +38,15 @@ function Form() {
   const {
     register,
     handleSubmit,
-      reset,
+    reset,
     formState: { errors },
   } = useForm<FormFields>();
   const onSubmit: SubmitHandler<FormFields> = (data) => {
     console.log(data);
     notify();
-    reset()
+    reset();
   };
-  
+
   //   console.log(register("firstName", { required: "this field is required" }))
   return (
     <form
@@ -62,7 +62,7 @@ function Form() {
               {...register("firstName", { required: "this field is required" })}
               className={`w-full h-14 rounded-xl mt-3 border border-grey200 border-solid  ${
                 errors.firstName ? "border-red-500" : "border-grey200"
-              }`}
+              } pl-5 hover:border-green600 cursor-pointer focus:outline-none focus:border-green600`}
             />{" "}
             {errors.firstName && (
               <div className="text-red-500">{errors.firstName.message}</div>
@@ -75,7 +75,7 @@ function Form() {
               {...register("lastName", { required: "this field is required" })}
               className={`w-full h-14 rounded-xl mt-3 border border-grey200 border-solid  ${
                 errors.lastName ? "border-red-500" : "border-grey200"
-              } `}
+              } pl-5 hover:border-green600 cursor-pointer focus:outline-none focus:border-green600`}
             />{" "}
             {errors.lastName && (
               <div className="text-red-500">{errors.lastName.message}</div>
@@ -94,7 +94,7 @@ function Form() {
             })}
             className={`w-full h-14 rounded-xl mt-3 border border-grey200 border-solid  ${
               errors.email ? "border-red-500" : "border-grey200"
-            }`}
+            } pl-5 hover:border-green600 cursor-pointer focus:outline-none focus:border-green600`}
           />{" "}
           {errors.email && (
             <div className="text-red-500">{errors.email.message}</div>
@@ -104,26 +104,32 @@ function Form() {
         <div className=" w-full h-24 mb-6">
           <h1>Query Type</h1>
           <div className=" mt-4 w-full flex">
-            <label className="w-6/12  mr-4 py-3 pl-6 rounded-xl border border-grey200">
+            <label
+              className=" 
+            has-[:checked]:bg-green200 has-[:checked]:text-grey600 has-[:checked]:border-green600 
+            flex items-center cursor-pointer w-6/12  mr-4 py-3 pl-6 rounded-xl border border-grey200"
+            >
               <input
                 type="radio"
                 value="general"
                 {...register("type", {
                   required: "please select a query type",
                 })}
-                className="mr-4"
+                className="mr-2 w-4 h-4 accent-green600"
               />
               General Enquiry
             </label>
 
-            <label className="w-6/12 ml-4 py-3 pl-6 rounded-xl border border-grey200">
+            <label className="
+             has-[:checked]:bg-green200 has-[:checked]:text-grey600 has-[:checked]:border-green600 
+            cursor-pointer w-6/12 ml-4 py-3 pl-6 rounded-xl border border-grey200">
               <input
                 type="radio"
                 value="support"
                 {...register("type", {
                   required: "please select a query type",
                 })}
-                className="mr-4"
+                className="mr-4 w-4 h-4 accent-green600"
               />
               Support Request
             </label>
@@ -132,28 +138,28 @@ function Form() {
             <div className="text-red-500">{errors.type.message}</div>
           )}
         </div>
-        <div className="flex flex-col mb-6">
-          <label htmlFor="message">Message</label>
-          <input
-            type="text"
-            {...register("message", { required: "this field is required" })}
-            className={`w-full h-24 rounded-xl mt-3 border border-grey200 border-solid ${
-              errors.message ? "border-red-500" : "border-grey200"
-            }`}
-          />{" "}
-          {errors.message && (
-            <div className="text-red-500">{errors.message.message}</div>
-          )}
-        </div>
+<div className="flex flex-col mb-6">
+  <label htmlFor="message">Message</label>
+  <textarea
+    {...register("message", { required: "this field is required" })}
+    className={`w-full h-24 rounded-xl mt-3 border border-solid overflow-hidden
+      ${errors.message ? "border-red-500" : "border-grey200"}
+      px-5 py-3 hover:border-green600 cursor-pointer focus:outline-none focus:border-green600 resize-none`}
+  />
+  {errors.message && (
+    <div className="text-red-500">{errors.message.message}</div>
+  )}
+</div>
 
-        <label>
+
+        <label className="flex">
           <input
+            className="mr-2 accent-green600 "
             type="checkbox"
             {...register("contacted", {
               required:
                 "To submit this form, please consent to being contacted",
             })}
-            className="mr-2"
           />{" "}
           I consent to being contacted by team
         </label>
@@ -163,7 +169,7 @@ function Form() {
       </div>
       <button
         type="submit"
-        className="mt-6 bg-green600 text-white w-full py-4 rounded-xl "
+        className="mt-6 bg-green600 text-white w-full py-4 rounded-xl hover:bg-[#0c3a00] cursor-pointer "
       >
         Submit
       </button>
