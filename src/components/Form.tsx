@@ -169,11 +169,11 @@ function Form() {
       </div>
       <button
         type="submit"
-        className="mt-6 bg-green600 text-white w-full py-4 rounded-xl hover:bg-[#0c3a00] cursor-pointer "
+        className="mt-6 bg-green600 text-white w-full py-4 rounded-xl hover:bg-grey600 cursor-pointer "
       >
         Submit
       </button>
-      <ToastContainer toastClassName="bg-gray-700 text-white w-[410px] h-[100px] px-5 py-4 rounded-xl shadow-md flex flex-col justify-center" />
+      <ToastContainer toastClassName="bg-grey600 text-white w-[410px] h-[100px] px-5 py-4 rounded-xl shadow-md flex flex-col justify-center" />
     </form>
   );
 }
