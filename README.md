@@ -10,7 +10,8 @@ Currently, two official plugins are available:
 
 A clean and modern contact form built with **React**, styled using **Tailwind CSS**, and powered by **Vite**. This form includes validation, radio buttons for query type, and a required checkbox for user consent.
 
-![Desktop Preview](./desktop-design.jpg)
+![Desktop Preview](src/assets/design/desktop-design.jpg)
+
 
 ---
 
