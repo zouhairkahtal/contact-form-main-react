@@ -6,49 +6,43 @@ Currently, two official plugins are available:
 
 # [link page](https://gorgeous-rabanadas-a73521.netlify.app/)
   
+# Contact Form — React + Tailwind CSS
 
-## Expanding the ESLint configuration
+A clean and modern contact form built with **React**, styled using **Tailwind CSS**, and powered by **Vite**. This form includes validation, radio buttons for query type, and a required checkbox for user consent.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+![Desktop Preview](./desktop-design.jpg)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ✨ Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- First Name / Last Name inputs
+- Email Address input with validation
+- Query type selection (radio)
+- Message textarea
+- Required consent checkbox
+- Responsive design
+- Tailwind CSS styling
+- Easy to integrate with back-end or 3rd-party services (EmailJS, Formspree...)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+---
+
+## 🔧 Tech Stack
+
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/) *(if used)*
+
+---
+
+## 🚀 Getting Started
+
+Clone the repo and install dependencies:
+
+```bash
+git clone https://github.com/zouhairkahtal/contact-form-main-react.git
+cd contact-form-main-react
+npm install
+npm run dev
+
