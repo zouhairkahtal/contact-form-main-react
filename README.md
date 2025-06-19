@@ -22,10 +22,8 @@ A clean and modern contact form built with **React**, styled using **Tailwind CS
 - Query type selection (radio)
 - Message textarea
 - Required consent checkbox
-- Responsive design
+- Responsive design ❎
 - Tailwind CSS styling
-- Easy to integrate with back-end or 3rd-party services (EmailJS, Formspree...)
-
 ---
 
 ## 🔧 Tech Stack
